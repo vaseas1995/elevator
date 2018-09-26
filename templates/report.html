@@ -1,0 +1,83 @@
+{% extends 'main.html' %}
+{% block body %}
+
+    <div class="container m-t-50">
+        <div class="content-wrapper">
+            <div class="content">
+                <div class="door dleft"></div>
+                    <div class="door dright"></div> 
+                        <div class="data" >
+                            <table id="state" class="keytable">
+                                <thead >
+                                    <tr style="height: 45px;">
+                                        <th>Nr. Oficiului</th>
+                                        <th>Persoana responsabila</th>
+                                        <th>Ora Luarii</th>
+                                        <th>Ora restituirii</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                
+                                    {% for log_row in the_stare_data %}
+                                        <tr>
+                                            {% for item in log_row %}
+                                                <td>{{item}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+            </div>
+        </div>
+        
+        <div class="menu">
+            <!-- <div class="btn gray f-btn" data-id="7">7</div>
+            <div class="btn gray f-btn" data-id="8">8</div>
+            <div class="btn gray f-btn" data-id="5">5</div>
+            <div class="btn gray f-btn" data-id="6">6</div>
+            <div class="btn gray f-btn" data-id="3">3</div>
+            <div class="btn gray f-btn" data-id="4">4</div>
+            <div class="active-btn-press btn gray f-btn" data-id="1">1</div>
+            <div class="btn gray f-btn" data-id="2">2</div>
+            <hr class="hrbtn"> -->
+            
+                <form method='POST' id="my_form"> 
+                    <p>
+                        <span class="utitle" required> Sortare dupa numarul oficiului:</span> 
+                            <select name = 'key_id' id="key_id">
+                                    <option disabled selected value> -- selectati oficiul -- </option>
+                                {% for key_ID in the_data %}
+                                   
+                                    <option value = "{{key_ID[0]}}">{{ key_ID[0] }}</option>
+                            
+                                {% endfor %}
+                            </select>
+                    </p>
+                    <p>
+                        <span class="utitle" required> Sortare dupa persoana responsabila:</span>
+                        <select name = 'human_name' id="human_name">
+                                <option disabled selected value> -- selectare persoana -- </option>
+                            {% for name in name_list %}
+                                <option value="{{ name[0] }}"> {{ name[0] }} </option>>
+                            {% endfor %}
+                        </select>
+                    </p>
+                    <p>
+                        <input type="date" name="date_time">
+
+
+                    </p>
+                    <input type='submit' value = 'OK' class= "submit_form">
+                    <input type="reset" value = 'Anulare'>
+                    <!-- <button class="close" onclick="closeModal(event)" type="button">Anulare</button> -->
+                </form>
+        </div>
+        <div class="footer"></div>
+    </div>
+
+   
+
+     <div id="hide-layout" class="hide-layout"></div>
+
+{% endblock %}

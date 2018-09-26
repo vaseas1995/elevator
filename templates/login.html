@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The elevator project</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css" />
+    <!-- <script type ="text/javascript" src = "static/main.js"> </script> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    {% block body%}
+    <div class="container">
+    <div class="header">
+        <div class="hbtn bon" data-hbtn-id="1">1</div>
+        <div class="hbtn" data-hbtn-id="2">2</div>
+        <div class="hbtn" data-hbtn-id="3">3</div>
+        <div class="hbtn" data-hbtn-id="4">4</div>
+        <div class="hbtn" data-hbtn-id="5">5</div>
+        <div class="hbtn" data-hbtn-id="6">6</div>
+        <div class="hbtn" data-hbtn-id="7">7</div>
+        <div class="hbtn" data-hbtn-id="8">8</div>
+    </div>
+
+        <div class="content-wrapper">
+            <div class="content">
+            <div class="door dleft"></div>
+            <div class="door dright"></div> 
+            <div class="data" ><h1 id = "etaj_nr">Etajul 1</h1>
+            
+            </div>
+            </div>
+        </div>
+        
+        <div class="menu">
+            <div class="btn gray f-btn" data-id="7">7</div>
+            <div class="btn gray f-btn" data-id="8">8</div>
+            <div class="btn gray f-btn" data-id="5">5</div>
+            <div class="btn gray f-btn" data-id="6">6</div>
+            <div class="btn gray f-btn" data-id="3">3</div>
+            <div class="btn gray f-btn" data-id="4">4</div>
+            <div class="active-btn-press btn gray f-btn" data-id="1">1</div>
+            <div class="btn gray f-btn" data-id="2">2</div>
+            <hr class="hrbtn">
+            <!-- <div class="longbtn green">Cвободные кабинеты</div>
+            <div class="longbtn red">Занятые кабинеты</div> -->
+            <button type="button" class="longbtn green" onclick="openModalWindow(this)">Inmanare cheie</button>
+        </div>
+        <div class="footer"></div>
+    </div>
+
+    <div id="giveKeys" class="modal">
+        <div class="popup">
+            <form method='POST' id="my_form" > 
+                <p>
+                    <span class="utitle" required>Login:</span> 
+                        
+                </p>
+                <p>
+                    <span class="utitle" required>Parola:</span>
+                    
+                </p>
+                <input type='submit' value = 'OK' class= "submit_form" onsubmit="reload_window()">
+                <button class="close" onclick="closeModal(event)" type="button">Anulare</button>
+            </form>
+        </div>
+    </div>
+
+     <div id="hide-layout" class="hide-layout"></div>
+    {% endblock %}
+    
+
+</body>
+<script src="./static/jquery-3.3.1.min.js"></script>
+<script type ="text/javascript" src = "static/main.js"> </script>
+
+</html>
